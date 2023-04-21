@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import io.flutter.Log;
 
 import io.flutter.embedding.engine.FlutterEngine;
-import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 
 /**
  * Generated file. Do not edit.
@@ -16,16 +15,15 @@ import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 public final class GeneratedPluginRegistrant {
   private static final String TAG = "GeneratedPluginRegistrant";
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
-    ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin path_provider_android, io.flutter.plugins.pathprovider.PathProviderPlugin", e);
     }
     try {
-      sq.flutter.ssh.SshPlugin.registerWith(shimPluginRegistry.registrarFor("sq.flutter.ssh.SshPlugin"));
+      flutterEngine.getPlugins().add(new flutter.ssh2.SshPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin ssh, sq.flutter.ssh.SshPlugin", e);
+      Log.e(TAG, "Error registering plugin ssh2, flutter.ssh2.SshPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());

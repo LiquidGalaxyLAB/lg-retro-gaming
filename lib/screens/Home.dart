@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:socket_io_client/socket_io_client.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:ssh/ssh.dart';
+import 'package:ssh2/ssh2.dart';
 
 final store = GetStorage();
 
@@ -349,6 +346,8 @@ class _HomeState extends State<Home> {
     if (ip == null) {
       // set default values for variables
       store.write('serverIp', '192.168.0.123');
+      store.write('serverUsername', 'lg');
+      store.write('serverPassword', 'lg');
       store.write('serverPort', '3123');
       store.write('asteroidsPort', '8129');
       store.write('pacmanPort', '8128');
@@ -397,27 +396,34 @@ class _HomeState extends State<Home> {
       _installing = true;
     });
 
-    try {
-      final String? serverIp = store.read('serverIp');
+    String? serverIp;
+    String? serverUsername;
+    String? serverPassword;
 
-      if (serverIp == null) {
+    try {
+      serverIp = store.read('serverIp');
+      serverUsername = store.read('serverUsername');
+      serverPassword = store.read('serverPassword');
+
+
+      if (serverIp == null || serverUsername == null) {
         return;
       }
 
       final client = SSHClient(
-          host: serverIp, port: 22, username: 'lg', passwordOrKey: 'lq');
+          host: serverIp, port: 22, username: serverUsername, passwordOrKey: serverPassword);
 
       await client.connect();
 
-      await client.execute('echo lq | sudo -S apt install git-all');
+      await client.execute('echo $serverPassword | sudo -S apt install git-all');
 
-      await client.execute('echo lq | sudo -S rm -rf lg-retro-gaming');
-      await client.execute('echo lq | sudo -S rm -rf galaxy-asteroids');
+      await client.execute('echo $serverPassword | sudo -S rm -rf lg-retro-gaming');
+      await client.execute('echo $serverPassword | sudo -S rm -rf galaxy-asteroids');
 
       await client.execute(
-          'echo lq | sudo -S git clone https://github.com/LiquidGalaxyLAB/lg-retro-gaming');
+          'echo $serverPassword | sudo -S git clone https://github.com/LiquidGalaxyLAB/lg-retro-gaming');
       await client.execute(
-          'echo lq | sudo -S git clone https://github.com/LiquidGalaxyLAB/galaxy-asteroids');
+          'echo $serverPassword | sudo -S git clone https://github.com/LiquidGalaxyLAB/galaxy-asteroids');
 
       await client.execute(
           'cd ~/lg-retro-gaming && bash ~/lg-retro-gaming/install.sh lq');
