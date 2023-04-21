@@ -12,10 +12,10 @@
 @import path_provider_ios;
 #endif
 
-#if __has_include(<ssh/SshPlugin.h>)
-#import <ssh/SshPlugin.h>
+#if __has_include(<ssh2/SshPlugin.h>)
+#import <ssh2/SshPlugin.h>
 #else
-@import ssh;
+@import ssh2;
 #endif
 
 #if __has_include(<url_launcher_ios/FLTURLLauncherPlugin.h>)
