@@ -19,7 +19,7 @@ You may download the [APK](https://github.com/LiquidGalaxyLAB/lg-retro-gaming/tr
 node -v
 ```
 
-3. The output should look someting like `v14.17.5`, if this is not the case use the following link for tips on how to install it:
+3. The output should look something like `v14.17.5`, if this is not the case use the following link for tips on how to install it:
    [How To Install Node.js on Ubuntu 16.04](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)
 4. After Node.js is installed, Install pm2 on master machine. Run command:
 
@@ -65,7 +65,7 @@ If you experience any problems, check the installation logs for any possible err
 
 ## 📱 App setup
 
-Now that the server is running, make sure the android device and the liquid galaxy are connected to the **same wi-fi** network berfore running the app. Once that's done, the setup is very simple.
+Now that the server is running, make sure the android device and the liquid galaxy are connected to the **same wi-fi** network before running the app. Once that's done, the setup is very simple.
 
 - First, open the app and go to the settings page (cog icon on the top right of the screen)
 <p align="center">
@@ -74,6 +74,8 @@ Now that the server is running, make sure the android device and the liquid gala
 
 - On the settings screens set all the variables to the following values
   - Server Ip: Master machine ipv4 (including the dots e.g.: 192.168.0.124)
+  - Server Username: lg
+  - Server Password: lg
   - Server Port: 3123
   - Asteroids Port: 8129
   - Pacman Port: 8128
