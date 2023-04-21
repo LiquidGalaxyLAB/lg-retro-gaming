@@ -11,6 +11,8 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   final formKey = GlobalKey<FormState>();
   final String? serverIp = store.read('serverIp');
+  final String? serverUsername = store.read('serverUsername');
+  final String? serverPassword = store.read('serverPassword');
   final String? serverPort = store.read('serverPort');
   final String? asteroidsPort = store.read('asteroidsPort');
   final String? pacmanPort = store.read('pacmanPort');
@@ -82,6 +84,70 @@ class _SettingsState extends State<Settings> {
                     onSaved: (input) => store.write('serverIp', input),
                     validator: (input) =>
                         input?.length == 0 ? 'Server ip is required' : null,
+                  ),
+                ),
+                Padding(
+                  padding:
+                  EdgeInsets.symmetric(vertical: screenSize.width * 0.01),
+                  child: TextFormField(
+                    style: TextStyle(color: Color(0xFF00FF05)),
+                    initialValue: serverUsername,
+                    decoration: InputDecoration(
+                      labelText: 'Server Username',
+                      labelStyle: TextStyle(color: Color(0xFF00FF05)),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: screenSize.height * 0.003,
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.green,
+                          width: screenSize.height * 0.003,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.green,
+                          width: screenSize.height * 0.003,
+                        ),
+                      ),
+                    ),
+                    onSaved: (input) => store.write('serverUsername', input),
+                    validator: (input) =>
+                    input?.length == 0 ? 'Server Username is required' : null,
+                  ),
+                ),
+                Padding(
+                  padding:
+                  EdgeInsets.symmetric(vertical: screenSize.width * 0.01),
+                  child: TextFormField(
+                    style: TextStyle(color: Color(0xFF00FF05)),
+                    initialValue: serverPassword,
+                    decoration: InputDecoration(
+                      labelText: 'Server Password',
+                      labelStyle: TextStyle(color: Color(0xFF00FF05)),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                            width: screenSize.height * 0.003,
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.green,
+                          width: screenSize.height * 0.003,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.green,
+                          width: screenSize.height * 0.003,
+                        ),
+                      ),
+                    ),
+                    onSaved: (input) => store.write('serverPassword', input),
+                    validator: (input) =>
+                    input?.length == 0 ? 'Server Password is required' : null,
                   ),
                 ),
                 Padding(
@@ -313,6 +379,70 @@ class _SettingsState extends State<Settings> {
                       onSaved: (input) => store.write('serverIp', input),
                       validator: (input) =>
                           input?.length == 0 ? 'Server ip is required' : null,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                    EdgeInsets.symmetric(vertical: screenSize.width * 0.01),
+                    child: TextFormField(
+                      style: TextStyle(color: Color(0xFF00FF05)),
+                      initialValue: serverUsername,
+                      decoration: InputDecoration(
+                        labelText: 'Server Username',
+                        labelStyle: TextStyle(color: Color(0xFF00FF05)),
+                        errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: screenSize.height * 0.003,
+                            )),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.green,
+                            width: screenSize.height * 0.003,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.green,
+                            width: screenSize.height * 0.003,
+                          ),
+                        ),
+                      ),
+                      onSaved: (input) => store.write('serverUsername', input),
+                      validator: (input) =>
+                      input?.length == 0 ? 'Server Username is required' : null,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                    EdgeInsets.symmetric(vertical: screenSize.width * 0.01),
+                    child: TextFormField(
+                      style: TextStyle(color: Color(0xFF00FF05)),
+                      initialValue: serverPassword,
+                      decoration: InputDecoration(
+                        labelText: 'Server Password',
+                        labelStyle: TextStyle(color: Color(0xFF00FF05)),
+                        errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: screenSize.height * 0.003,
+                            )),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.green,
+                            width: screenSize.height * 0.003,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.green,
+                            width: screenSize.height * 0.003,
+                          ),
+                        ),
+                      ),
+                      onSaved: (input) => store.write('serverPassword', input),
+                      validator: (input) =>
+                      input?.length == 0 ? 'Server Password is required' : null,
                     ),
                   ),
                   Padding(
